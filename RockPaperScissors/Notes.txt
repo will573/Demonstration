@@ -1,0 +1,6 @@
+The original intention is to create a webpage that allowed users to play the classic game of rock paper scissors. An early design intention was to include a faked sense of intellegince to the random number generator, which were unfortunately removed due to the addition's tendency to break the game. These intellegence modifiers will be included as seperate and unused code.
+
+Images are from wikipedia Commons, and the links to image are as follows.
+https://commons.wikimedia.org/wiki/File:Rock-paper-scissors_(rock).png
+https://commons.wikimedia.org/wiki/File:Rock-paper-scissors_(paper).png
+https://commons.wikimedia.org/wiki/File:Rock-paper-scissors_(scissors).png

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.center{
+text-align: center;
+  }
+  
+.cpu{
+text-decoration: underline;
+text-decoration-color: red;
+text-shadow: 0 0 3px #FF0000;
+}
+.player{
+text-decoration: overline;
+text-decoration-color: blue;
+text-shadow: 0 0 3px #0000FF;
+}
+img{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border: thick solid black;
+  }
+</style>
+<title>Rock Paper Scissors</title>
+
+</head>
+
+<body>
+
+<h1>Welcome to the Rock Paper Scissors game</h1>
+<p id="PlayerScore">Your score:0</p>
+<p id="CPUScore">CPU score:0</p>
+
+<button id="reset">RESET SCORES</button>
+<br>
+
+
+<div class="center">
+<h2 class="cpu">CPU</h2>
+<p>
+<img src="Rock.png" alt="Rock" id="cpurock">
+<img src="Paper.png" alt="Paper" id="cpupaper">
+<img src="Scissors.png" alt="Scissors" id="cpuscissors">
+<br>
+<img src="Rock.png" alt="Rock" id="rock">
+<img src="Paper.png" alt="Paper" id="paper">
+<img src="Scissors.png" alt="Scissors" id="scissors">
+<p>
+<h2 class="player">YOU</h2>
+</div>
+
+<script>
+var active = false;
+
+document.getElementById("reset").onclick = function(){reset()};
+
+document.getElementById("rock").onclick = function(){gameStart(1)};
+document.getElementById("paper").onclick = function(){gameStart(2)};
+document.getElementById("scissors").onclick = function(){gameStart(3)};
+
+
+function gameStart(choice){
+
+	if (active){
+		return;
+	}
+	active=true;
+	
+	//rock
+	if(choice==1){
+		document.getElementById("rock").style.borderColor = "blue";
+	}
+	//paper
+	if(choice==2){
+		document.getElementById("paper").style.borderColor = "blue";
+	}
+	//scissors
+	if(choice==3){
+		document.getElementById("scissors").style.borderColor = "blue";
+	}
+	
+	//set via ai
+	var cpuChoice= randomGen(3);
+	if(cpuChoice==1){
+		document.getElementById("cpurock").style.borderColor = "red";
+	}
+	//paper
+	if(cpuChoice==2){
+		document.getElementById("cpupaper").style.borderColor = "red";
+	}
+	//scissors
+	if(cpuChoice==3){
+		document.getElementById("cpuscissors").style.borderColor = "red";
+	}
+	
+
+	//playerVictory
+	if((choice==1 && cpuChoice==3) || (choice==2 && cpuChoice==1) || (choice==3 && cpuChoice==2)){
+	playerWin();
+	}
+	//CPUVictory
+	if((cpuChoice==1 && choice==3) || (cpuChoice==2 && choice==1) || (cpuChoice==3 && choice==2)){
+	CPUWin();
+	}
+	
+	setTimeout(function(){endGame();}, 3000);
+	
+	return;
+	}
+//Ends game
+//progress works 
+function endGame(){
+	
+	document.getElementById("rock").style.borderColor = "black";
+	document.getElementById("paper").style.borderColor = "black";
+	document.getElementById("scissors").style.borderColor = "black";
+
+	document.getElementById("cpurock").style.borderColor = "black";
+	document.getElementById("cpupaper").style.borderColor = "black";
+	document.getElementById("cpuscissors").style.borderColor = "black";
+	active= false;
+}
+	
+var scoreCPU=0;
+var scorePlayer=0;	
+
+//resets scores
+function reset(){
+	scoreCPU=-1;
+	CPUWin();
+	scorePlayer=-1;
+	playerWin();
+}
+//progress: works
+function playerWin(){
+	scorePlayer+=1;
+	PlayerScoreOut="Your score:"+scorePlayer;
+	document.getElementById("PlayerScore").innerHTML = PlayerScoreOut;
+}
+//progress works
+function CPUWin(){
+	scoreCPU+=1;
+	CPUScoreOut="CPU score:"+scoreCPU;
+	document.getElementById("CPUScore").innerHTML = CPUScoreOut;
+}
+
+function randomGen(max){
+	var CPUchoice=1+Math.floor(Math.random()*max);
+	return CPUchoice;
+}
+
+	
+</script>
+
+</body>
+
+</html>

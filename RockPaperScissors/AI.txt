@@ -1,0 +1,101 @@
+function AIChoose(){
+	if(document.getElementById("random").checked){
+		return randomGen(3);
+		}
+	if(document.getElementById("copycat").checked){
+		return copycat();
+		}
+	if(document.getElementById("favoritist").checked){
+		return favorite();
+		}
+	if(document.getElementById("equalist").checked){
+		return equal();
+		}
+}
+//copy's player most played
+function copycat(){
+	var x = randomGen(playHistRoc+playHistPap+playHistSci);
+	if(x<=playHistRoc){
+		return 1;}
+	if(playHistRoc<x<= (playHistPap+playHistRoc) ){
+		return 2;}
+	else{
+		return 3;)
+	}
+}
+//against what the player uses most
+function favorite(){
+	var x = randomGen(playHistRoc+playHistPap+playHistSci);
+	if(x<=playHistRoc){
+		return 2;}
+	if(playHistRoc<x<= (playHistPap+playHistRoc) ){
+		return 3;}
+	else{
+		return 1;)
+		}
+		
+}
+//prioritise own least used
+function equal(){
+	var x = randomGen(CPUHistRoc+CPUHistPap+CPUHistSci);
+	if(CPUHistRoc<CPUHistPap && CPUHistRoc<CPUHistSci){
+		if(x<=Math.max(CPUHistPap, CPUHistSci)){
+			return 1;
+		}else if(Math.max(CPUHistPap, CPUHistSci)<x<=Math.max(CPUHistPap, CPUHistSci)+Math.min(CPUHistPap, CPUHistSci)){
+			if(CPUHistPap<=CPUHistSci){
+				return 2;
+			}else{
+				return 3;
+			}
+		}else{
+			if(CPUHistPap>CPUHistSci){
+				return 3;
+			}else{
+				return 2;
+			}
+		}	
+	}else if(CPUHistPap<CPUHistRoc && CPUHistPap<CPUHistSci){
+		if(x<=Math.max(CPUHistRoc, CPUHistSci)){
+			return 2;
+		}else if(Math.max(CPUHistRoc, CPUHistSci)<x<=Math.max(CPUHistRoc, CPUHistSci)+Math.min(CPUHistRoc, CPUHistSci)){
+			if(CPUHistRoc<=CPUHistSci){
+				return 1;
+			}else{
+				return 3;
+			}
+		}else{
+			if(CPUHistRoc>CPUHistSci){
+				return 1;
+			}else{
+				return 3;
+			}
+		}
+	}else if(CPUHistSci<CPUHistPap && CPUHistSci<CPUHistRoc){
+		if(x<=Math.max(CPUHistPap, CPUHistRoc)){
+			return 3;
+		}else if(Math.max(CPUHistPap, CPUHistRoc)<x<=Math.max(CPUHistPap, CPUHistRoc)+Math.min(CPUHistPap, CPUHistRoc)){
+			if(CPUHistPap<=CPUHistRoc){
+				return 2;
+			}else{
+				return 1;
+			}
+		}else{
+			if(CPUHistPap>CPUHistRoc){
+				return 1;
+			}else{
+				return 2;
+			}
+		}	
+	}else{
+		if(x<=CPUHistRoc){
+			return 1;
+			}
+		if(CPUHistRoc<x<=CPUHistPap){
+			return 2;
+			}
+		else{
+		return 3;
+		}
+	}
+	
+}
