@@ -1,0 +1,5 @@
+DRoll is a simple android application that allows dice rolling as an app.
+
+A number of tabletop games requires dice rolls of several differently sized dice with a different number of sides compared to the most
+commonly. This app includes the number of sides 4, 6, 8, 10, 12, 20, and 100. An additional feature is that it records the previous 10 
+rolls.
