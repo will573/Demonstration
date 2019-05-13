@@ -1,0 +1,7 @@
+POKER is one of the most played card games using the standard 52 card deck with  suits.
+
+I decided to recreate this game as a personal learning experience in the language C# as I was beginning to learn that language. Using a 
+virtual deck a player is set against up to 5 fake players. The game proceeds based on stage of the actual game. Once all the cards are 
+dealt at the end of the game, the application determines which player has the strongest hand including ties.
+
+To discourage irresposible gambling, features such as betting and AI player actions have been intendedly omitted.
