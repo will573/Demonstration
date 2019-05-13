@@ -1,4 +1,4 @@
-POKER is one of the most played card games using the standard 52 card deck with suits.
+POKER is one of the most played card games using the standard 52 card deck with 4 suits.
 
 After I recreated this game as a personal learning experience in the language C# as I decided to test myself again by recreating 
 transfering the game to java code. Using a virtual deck a player is set against up to 5 fake players. The game proceeds based on stage of 
